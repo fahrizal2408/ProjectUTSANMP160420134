@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/itemHome">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_logout"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDoctor"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.DoctorFragment"
+        android:label="Doctor"
+        tools:layout="@layout/fragment_doctor" >
+        <action
+            android:id="@+id/action_itemDoctor_to_detailDoctor"
+            app:destination="@id/detailDoctorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_home_to_obat"
+            app:destination="@id/obatFragment" />
+        <action
+            android:id="@+id/action_itemHome_to_beritaFragment"
+            app:destination="@id/beritaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailDoctorFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.DetailDoctorFragment"
+        android:label="Detail Dokter"
+        tools:layout="@layout/fragment_detail_doctor">
+        <argument
+            android:name="dokterId"
+            android:defaultValue="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/obatFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.ObatFragment"
+        android:label="Obat"
+        tools:layout="@layout/fragment_obat">
+        <action
+            android:id="@+id/action_obat_to_detailObat"
+            app:destination="@id/detailObatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailObatFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.DetailObatFragment"
+        android:label="Detail Obat"
+        tools:layout="@layout/fragment_detail_obat" >
+        <argument
+            android:name="obatId"
+            app:argType="string"
+            android:defaultValue="id" />
+    </fragment>
+    <fragment
+        android:id="@+id/beritaFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.BeritaFragment"
+        android:label="Berita"
+        tools:layout="@layout/fragment_berita">
+        <action
+            android:id="@+id/action_berita_to_detailBerita"
+            app:destination="@id/bacaBeritaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bacaBeritaFragment"
+        android:name="com.appsolution.a160420134_fahrizalwijanarkoamroe_projectanmp_healthcareumc.view.BacaBeritaFragment"
+        android:label="Baca Berita"
+        tools:layout="@layout/fragment_baca_berita">
+        <argument
+            android:name="beritaId"
+            android:defaultValue="id"
+            app:argType="string" />
+    </fragment>
+</navigation>
